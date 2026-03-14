@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Personal data (never commit)
+tracking/
+memory/
+daily/
+leads/
+decisions/
+archives/
+goals/
+*.local.md
+
+# Node (if extending with code)
+node_modules/
+dist/
