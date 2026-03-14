@@ -12,8 +12,8 @@ Execute these steps in order. Complete in <2,000 output tokens.
 ## Step 1: Context Pull
 Call in parallel:
 - `cc_content_stats` — recent publishing data, gaps, pillar distribution
-- Read `Brand_Bible_Appendix.md` §3 — content pillars (educational 30%, conversion 30%, storytelling 20%, insights 10%, flex 10%)
-- Read `Brand_Bible_Appendix.md` §6 — voice rules
+- Read `Brand_Bible_Appendix.md` content pillars (educational 30%, conversion 30%, storytelling 20%, insights 10%, flex 10%)
+- Read `Brand_Bible_Appendix.md` voice rules
 
 Determine pillar alignment for the topic.
 
@@ -25,8 +25,11 @@ Rules (from voice.md and CLAUDE.md):
 - **No em dashes.** No exclamation marks.
 - **Max 3 hashtags** at the bottom, after content.
 
-### 24 Banned Words (NEVER use):
-leverage, synergy, unlock, dive deep, game-changer, cutting-edge, revolutionary, seamless, robust, scalable, innovative, disruptive, empower, transform, streamline, optimize, paradigm, ecosystem, holistic, agile, granular, best-in-class, next-generation, thought leader
+### 38 Banned Words (NEVER use):
+leverage, synergy, unlock, dive deep, game-changer, cutting-edge, revolutionary, seamless, robust, scalable, innovative, disruptive, empower, transform, streamline, optimize, paradigm, ecosystem, holistic, agile, granular, best-in-class, next-generation, thought leader, delve, tapestry, landscape, utilize, harness, foster, bolster, multifaceted, nuanced, groundbreaking, transformative, elevate, navigate, pivotal
+
+### 9 Banned Phrases (NEVER use):
+"it's important to note", "in today's ever-evolving", "in conclusion", "a testament to", "deep dive into", "i'm thrilled to", "i'm excited to", "let me tell you", "it's worth noting"
 
 ### Post Structure:
 1. **Hook** — first line, <140 chars, no question mark
@@ -42,11 +45,16 @@ leverage, synergy, unlock, dive deep, game-changer, cutting-edge, revolutionary,
 ## Step 3: Anti-AI Check
 Verify:
 - [ ] No banned words present
+- [ ] No banned phrases present
 - [ ] No em dashes
 - [ ] No exclamation marks
 - [ ] At least one imperfection marker
 - [ ] First line <140 characters
 - [ ] Total length 900-1,300 characters
+- [ ] Each paragraph ≤ 130 characters (3 lines on mobile max)
+- [ ] No emoji at start or end of post; max 2 emoji total
+- [ ] No inline hashtags (only in final block)
+- [ ] No numbered lists starting from "1."
 - [ ] Max 3 hashtags at bottom
 - [ ] Reads like a human wrote it on their phone
 
