@@ -19,7 +19,22 @@ cp path/to/alfred-framework/framework/conventions/*.md .claude/conventions/
 cp path/to/alfred-framework/framework/templates/*.md templates/
 ```
 
-## Step 2: Create Your CLAUDE.md
+## Step 2: Copy Skills and Agents
+
+Copy all skills and agents, or pick the ones you need:
+
+```bash
+# Copy everything
+cp -r path/to/alfred-framework/skills/ .claude/skills/
+cp -r path/to/alfred-framework/agents/ .claude/agents/
+
+# Or pick individually
+cp -r path/to/alfred-framework/skills/briefing/ .claude/skills/briefing/
+cp -r path/to/alfred-framework/skills/proposal/ .claude/skills/proposal/
+cp -r path/to/alfred-framework/agents/deal-closing-expert/ .claude/agents/deal-closing-expert/
+```
+
+## Step 3: Create Your CLAUDE.md
 
 Copy the example and customize it:
 
@@ -35,7 +50,23 @@ Edit `CLAUDE.md` to define:
 4. **Your decision framework** — how to prioritize when everything feels urgent
 5. **Links to your rules** — point to `.claude/rules/behavior.md`, `voice.md`, `self-optimization.md`
 
-## Step 3: Create Tracking Files
+## Step 4: Replace Placeholders
+
+Skills use `[PLACEHOLDER]` values for personal data. Find and replace:
+
+| Placeholder | Replace with | Example |
+|-------------|-------------|---------|
+| `[YOUR_RATE]` | Your daily rate | `600 EUR/day` |
+| `[YOUR_CITY]` | Your location | `Paris` |
+| `[YOUR_TIMEZONE]` | Your timezone | `Europe/Paris` |
+| `[YOUR_ROLE]` | Your professional role | `Data Engineer` |
+| `[YOUR_MARKET]` | Your target market | `French SIs` |
+| `[BURN_RATE]` | Monthly expenses | `2300 EUR/month` |
+| `[HEALTH_TRACKER]` | Your wearable | `Oura`, `Whoop`, `Apple Watch` |
+| `[STUDY_APP]` | Your learning app | `Duolingo`, `Lingodeer` |
+| `[PLATFORM]` | Freelance platforms | `Malt`, `Upwork` |
+
+## Step 5: Create Tracking Files
 
 ```bash
 mkdir -p tracking goals decisions memory
@@ -58,43 +89,7 @@ daily/
 *.local.md
 ```
 
-## Step 4: Create Your First Skill
-
-Skills live in `.claude/skills/{name}/SKILL.md`. Start with something simple:
-
-```bash
-mkdir -p .claude/skills/morning-plan
-```
-
-Create `.claude/skills/morning-plan/SKILL.md`:
-
-```markdown
----
-name: morning-plan
-description: Quick morning plan with top 3 priorities
-user-invokable: true
----
-
-Generate a morning plan for today.
-
-## Step 1: Read Context
-Read tracking/session-state.md for carry-forward items.
-Read goals/quarterly.md for current priorities.
-
-## Step 2: Generate Plan
-Based on the context, create a prioritized plan:
-1. The Frog (hardest, most impactful task)
-2. Second priority
-3. Third priority
-
-Include time estimates and recommended order.
-
-## Step 3: Present
-Output as a clean, scannable list. End with:
-"Ready to start with #1?"
-```
-
-## Step 5: Start a Session
+## Step 6: Start a Session
 
 ```bash
 claude
@@ -102,8 +97,23 @@ claude
 
 Your assistant will read `CLAUDE.md` and the linked rules. Try:
 - Type `?` to see the action menu
-- Type `/morning-plan` to run your first skill
+- Type `/briefing` to run your first morning briefing
+- Type `/system-health` to check the system status
 - Ask it to draft an outreach message — it will follow the voice rules
+
+## Recommended Starting Set
+
+If you're not sure which skills to start with, here's a minimal productive set:
+
+| Skill | Why |
+|-------|-----|
+| `briefing` | Daily planning with priority enforcement |
+| `debrief` | Capture outcomes after every interaction |
+| `outreach` | Consistent outreach with voice rules |
+| `closeout` | Clean session endings with carry-forward |
+| `system-health` | Keep the system honest |
+
+Add more as you hit the 3-time rule — when you do something 3 times manually, it's time for a skill.
 
 ## What's Next
 
@@ -116,6 +126,6 @@ Your assistant will read `CLAUDE.md` and the linked rules. Try:
 
 - Keep CLAUDE.md under 300 lines — link to detail files, don't inline them
 - Use the load-on-demand pattern: define which triggers load which files
-- Start simple: 3 rules, 1 skill, 0 agents. Add complexity as you use the system.
+- Start simple: 3 rules, 5 skills, 0 agents. Add complexity as you use the system.
 - Review the assistant's self-optimization proposals weekly — they're often good ideas
 - Short, focused sessions with clean closeouts beat long marathon sessions

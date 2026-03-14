@@ -12,6 +12,7 @@
 | proposal | Brand_Bible.md, BUSINESS.md |
 | outreach, meeting prep | Brand_Bible.md, references/contacts.md |
 | rate analysis | Brand_Bible.md, BUSINESS.md |
+| decision, review jobs | + memory/knowledge-graph.md |
 
 ## Top Priority
 **Revenue. Everything else is secondary until burn rate is covered.**
@@ -36,10 +37,19 @@
 | "weekly review" | Stats, retrospective, accountability, patterns |
 | "debrief" | Post-interaction capture: 5 questions, CRM update, next action |
 | "draft outreach to [target]" | Contact lookup, angle selection, draft in voice |
+| "reactivate [target]" | Value-add reactivation message (not a pitch) |
 | "meeting prep [target]" | CRM pull, discovery questions, talking points |
 | "draft proposal for [target]" | Challenge-led proposal with rate guidance |
 | "tasks" | Task list re-ranked by priority, energy, calendar |
 | "review jobs" | Job feed sorted by AI score, constraint check |
+| "decision: [topic]" | 2-3 options with trade-offs, cross-domain impact |
+| "debate this" | Force adversarial debate on any decision |
+| "linkedin post [topic]" | LinkedIn post with anti-AI voice rules |
+| "content calendar" | Monthly content plan with pillar mix |
+| "rate analysis" | Pipeline rate trend analysis |
+| "inbox" / "check email" | Gmail triage with action items |
+| "calendar" | Today's events + free slots |
+| "deep research [topic]" | Multi-model research via Perplexity |
 | "done" / "closing" | Session closeout, carry-forward, commit |
 | "?" / "menu" | Context-aware action menu |
 
@@ -50,6 +60,8 @@
 - Avoidance detection: blocks non-priority work when #1 isn't done
 - Relationship decay: flags contacts going cold
 - Stale file detection: flags tracking files past threshold
+- Gmail + Calendar context in briefings and meeting prep
+- Content voice enforcement on all external drafts
 
 ## Skills
 
@@ -61,10 +73,35 @@
 | `/outreach [target]` | Draft outreach message |
 | `/proposal [target]` | Generate business proposal |
 | `/meeting-prep [target]` | Prepare for upcoming meeting |
+| `/tailor-cv [job]` | ATS-optimized CV for a specific job description |
+| `/linkedin-post [topic]` | LinkedIn post with voice rules |
+| `/x-post [topic]` | X/Twitter post or thread |
+| `/linkedin-engage` | Parse LinkedIn digest, score, draft comments |
 | `/system-health` | System health dashboard |
 | `/brand-voice-check` | Validate content against voice rules |
-| `/ship-gate [project]` | Release readiness review |
+| `/ship-gate [project]` | Release readiness review (4 agents) |
+| `/war-room [proposal]` | Proposal stress-test (4 agents) |
+| `/arch-review [topic]` | Architecture decision review (4 agents) |
+| `/council` | Adversarial decision debate (4 agents) |
 | `/deep-research [topic]` | Research any domain via Perplexity |
+| `/generate-expert-agent [slug]` | Create agent from research file |
+| `/financial-health` | Income, burn rate, runway calculation |
+| `/outreach-intelligence` | Outreach angle/channel analytics |
+| `/quarterly-retro` | Quarterly retrospective with goal scorecard |
+| `/closeout` | Session closeout with carry-forward |
+| `/note [text]` | Frictionless context capture |
+| `/context-refresh` | Monthly reference doc maintenance |
+| `/refresh-keyword-queue` | SEO keyword generation for content pipeline |
+| `/scaffold-astro [name]` | Scaffold Astro 5.x + Tailwind v4 project |
+| `/deploy-cloudflare [name]` | Build and deploy to Cloudflare Pages |
+| `/setup-content-pipeline` | Blog automation with CI/CD |
+| `/setup-auto-fix` | GitHub Actions autonomous CI fix |
+| `/audit-project` | 11-domain project audit |
+| `/wrap-conversation` | Extract session learnings to global resources |
+| `/wrap-project` | Project-level pattern extraction |
+| `/weekend-briefing` | Lightweight non-revenue briefing |
+| `/excalidraw-visuals [desc]` | Hand-drawn style PNG diagrams |
+| `/nano-banana-images [desc]` | Hyper-realistic image generation |
 
 ## Agents
 
@@ -73,6 +110,11 @@
 | `astro-site-builder` | Creating Astro pages/components | Follows layout hierarchy, Tailwind patterns |
 | `content-pipeline-builder` | Setting up blog automation | API patterns, validation, CI/CD |
 | `article-reviewer` | Reviewing blog articles | Voice compliance, quality, SEO |
+| `deal-closing-expert` | Sales calls, objections, negotiation | SPIN, Challenger, LAER frameworks |
+| `korean-business-expert` | Korean business interactions | Hierarchy, nunchi, KakaoTalk conversion |
+| `french-si-market-expert` | French ESN/SI interactions | Margin models, platform mechanics |
+| `freelance-pricing-expert` | Rate setting, packaging, pricing | TJM benchmarks, value-based pricing |
+| `pipeline-math-expert` | Pipeline health, forecasting | Coverage ratio, velocity, deal aging |
 
 ## Maintenance
 - **Daily:** "briefing" → plan. "debrief" after calls.

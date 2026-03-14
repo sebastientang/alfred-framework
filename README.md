@@ -12,15 +12,15 @@ This framework was extracted from a production system that manages a freelance c
 
 ### Rules (the brain)
 Three files define how your assistant thinks:
-- **`behavior.md`** — 19 behavioral rules covering priority enforcement, brutal honesty, pattern recognition, decision forcing, avoidance detection, session management, and context capture
+- **`behavior.md`** — 21 behavioral rules covering priority enforcement, brutal honesty, pattern recognition, decision forcing, avoidance detection, session management, and context capture
 - **`voice.md`** — Communication style: brevity over completeness, specifics over generalities, deadlines over intentions
 - **`self-optimization.md`** — 10 systems for continuous improvement: component creation (3-time rule), template evolution, relationship decay detection, time allocation analysis, stale data detection, and context window management
 
 ### Skills (user-invoked workflows)
-Multi-step procedures triggered by `/skill-name`. Each skill is a self-contained markdown file with numbered steps. Examples: `/briefing`, `/proposal`, `/deep-research`, `/ship-gate`.
+Multi-step procedures triggered by `/skill-name`. Each skill is a self-contained markdown file with numbered steps. 35 skills included — from daily briefings to adversarial decision debates.
 
 ### Agents (auto-activating experts)
-Domain specialists that activate when context matches — no explicit trigger needed. Examples: `astro-site-builder` activates when creating Astro components, `article-reviewer` activates when editing blog posts.
+Domain specialists that activate when context matches — no explicit trigger needed. 8 agents included — from Astro site building to Korean business etiquette.
 
 ### Templates (structured output)
 Markdown templates for recurring outputs (briefings, proposals, reviews). The assistant fills the template — the user reviews and acts.
@@ -43,57 +43,154 @@ cp -r framework/conventions/ .claude/conventions/
 cp -r framework/templates/ templates/
 ```
 
-2. Create your `CLAUDE.md` using `examples/freelance-consultant/CLAUDE.md` as a starting point. Customize:
+2. Copy skills and agents you want:
+```bash
+# Copy all skills
+cp -r skills/ .claude/skills/
+
+# Copy all agents
+cp -r agents/ .claude/agents/
+
+# Or pick individually
+cp -r skills/briefing/ .claude/skills/briefing/
+cp -r agents/deal-closing-expert/ .claude/agents/deal-closing-expert/
+```
+
+3. Create your `CLAUDE.md` using `examples/freelance-consultant/CLAUDE.md` as a starting point. Customize:
    - Your context (who you are, what matters)
    - Your top priority
    - Your trigger table (what commands you want)
    - Your decision framework
 
-3. Create your first skill by copying an example from `examples/freelance-consultant/skills/` and adapting it.
+4. Replace `[PLACEHOLDERS]` in copied skills with your actual values:
+   - `[YOUR_RATE]` → your daily rate
+   - `[YOUR_CITY]` → your location
+   - `[YOUR_TIMEZONE]` → your timezone (e.g., "America/New_York")
+   - `[YOUR_ROLE]` → your professional role
+   - `[YOUR_MARKET]` → your target market
+   - `[BURN_RATE]` → your monthly expenses
+   - `[HEALTH_TRACKER]` → your wearable (Oura, Whoop, etc.)
+   - `[STUDY_APP]` → your learning app
 
-4. Start a Claude Code session. The assistant will read your rules and operate accordingly.
+5. Start a Claude Code session. The assistant will read your rules and operate accordingly.
 
 ## Project Structure
 
 ```
-framework/
-├── rules/
-│   ├── behavior.md          # 19 behavioral rules
-│   ├── voice.md             # Communication style
-│   └── self-optimization.md # 10 self-improvement systems
-├── conventions/
-│   └── skill-agent-conventions.md  # How to author skills + agents
-├── templates/               # Output templates
-└── structure.md             # How to organize your project
-
-examples/
-└── freelance-consultant/    # Complete working example
-    ├── CLAUDE.md            # Example project instructions
-    ├── skills/              # 5 example skills
-    ├── agents/              # 3 example agents
-    └── templates/           # Example templates
-
-docs/
-└── getting-started.md       # Setup guide
+alfred-framework/
+├── framework/
+│   ├── rules/                    # Core behavioral rules
+│   │   ├── behavior.md           # 21 behavioral rules
+│   │   ├── voice.md              # Communication style
+│   │   └── self-optimization.md  # 10 self-improvement systems
+│   ├── conventions/
+│   │   └── skill-agent-conventions.md
+│   ├── templates/                # Output templates
+│   └── structure.md
+├── skills/                       # All 35 skills
+│   ├── briefing/SKILL.md
+│   ├── weekly-review/SKILL.md
+│   ├── debrief/SKILL.md
+│   ├── proposal/SKILL.md
+│   ├── ... (35 total)
+│   └── x-post/SKILL.md
+├── agents/                       # All 8 agents
+│   ├── deal-closing-expert/AGENT.md
+│   ├── korean-business-expert/AGENT.md
+│   ├── ... (8 total)
+│   └── pipeline-math-expert/AGENT.md
+├── examples/
+│   └── freelance-consultant/
+│       ├── CLAUDE.md             # Example project config
+│       └── templates/            # Example filled templates
+├── docs/
+│   └── getting-started.md
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
-## Examples Included
+## Skills (35)
 
-### Skills
+### Business Operations
 | Skill | What it does |
 |-------|-------------|
-| `scaffold-astro` | Scaffolds an Astro 5.x + Tailwind v4 project |
-| `deep-research` | Researches any topic via Perplexity API with smart model selection |
-| `system-health` | Dashboard for file freshness, optimization status, accountability |
-| `brand-voice-check` | Two-pass content validation (regex + AI tone review) |
-| `ship-gate` | Release readiness review with 4 parallel audit agents |
+| `briefing` | Daily morning briefing — pipeline, tasks, calendar, frog selection, reactivation scan |
+| `weekly-review` | Weekly stats, retrospective, accountability checks, pattern analysis, self-assessment |
+| `weekend-briefing` | Lightweight non-revenue briefing for weekends — build tasks, carry-forward |
+| `quarterly-retro` | Quarterly retrospective — goal scorecard, learning analysis, STOP/START/CONTINUE |
+| `closeout` | Session closeout — carry-forward items, tracking updates, commit and push |
+| `system-health` | Dashboard — file freshness, self-optimization status, nag counters |
+| `financial-health` | Income, pipeline-weighted forecast, burn rate, runway calculation |
+| `note` | Frictionless context capture — timestamped append to context-updates.md |
+| `context-refresh` | Monthly maintenance — apply context updates, archive processed, freshness audit |
 
-### Agents
-| Agent | When it activates |
-|-------|-------------------|
-| `astro-site-builder` | Creating Astro pages, components, or layouts |
-| `content-pipeline-builder` | Setting up automated content generation |
-| `article-reviewer` | Reviewing blog articles for quality and voice |
+### Pipeline & Outreach
+| Skill | What it does |
+|-------|-------------|
+| `outreach` | Draft outreach message — contact lookup, angle selection, voice-checked draft |
+| `meeting-prep` | Meeting preparation — CRM context, email/calendar history, discovery questions |
+| `debrief` | Post-interaction capture — 5 questions, CRM update, next action with deadline |
+| `proposal` | Business proposal — challenge-led format, rate tiers, scope structure |
+| `outreach-intelligence` | Outreach analytics — angle performance, channel conversion, timing optimization |
+| `tailor-cv` | ATS-optimized CV — job description parsing, auto language detection, HTML output |
+
+### Content & Social
+| Skill | What it does |
+|-------|-------------|
+| `linkedin-post` | LinkedIn post — anti-AI voice rules, 900-1300 chars, French default |
+| `x-post` | X/Twitter post — 280-char limit, contrarian voice, English only |
+| `linkedin-engage` | LinkedIn engagement — parse digest, score relevance, draft comments |
+| `brand-voice-check` | Content validation — regex + AI two-pass, tier-aware, bilingual |
+| `refresh-keyword-queue` | SEO keyword generation — validate against existing articles |
+
+### Decision Making
+| Skill | What it does |
+|-------|-------------|
+| `council` | Adversarial decision debate — 4-agent team (Proposer, Challenger, Steelmanner, Pre-Mortem) |
+| `war-room` | Proposal stress-test — 4-agent team (Buyer's Advocate, Competitor Shadow, Scope Realist, Pricing Challenger) |
+| `arch-review` | Architecture review — 4-agent team (Pragmatist, Scale Thinker, DX Advocate, Debt Accountant) |
+| `ship-gate` | Release readiness — 4-agent team (Secret Hunter, Doc Judge, Dependency Auditor, First Impression Tester) |
+
+### Research & Knowledge
+| Skill | What it does |
+|-------|-------------|
+| `deep-research` | Multi-model Perplexity research — auto model selection, structured reference output |
+| `generate-expert-agent` | Create auto-activating agent from a deep-research reference file |
+
+### Development & Deployment
+| Skill | What it does |
+|-------|-------------|
+| `scaffold-astro` | Scaffold Astro 5.x + Tailwind v4 project with layouts, components, config |
+| `deploy-cloudflare` | Build and deploy to Cloudflare Pages via wrangler |
+| `setup-content-pipeline` | Blog automation — article generation, validation, keyword queue, GitHub Actions cron |
+| `setup-auto-fix` | GitHub Actions workflows for autonomous CI auto-fix with Claude Code |
+| `audit-project` | 11-domain project audit — structure, config, content, SEO, security, performance |
+
+### Session Management
+| Skill | What it does |
+|-------|-------------|
+| `wrap-conversation` | Extract learnings from current conversation to global resources |
+| `wrap-project` | Survey project, extract cross-project patterns, consolidate memory |
+
+### Creative Tools
+| Skill | What it does |
+|-------|-------------|
+| `excalidraw-visuals` | Hand-drawn style PNG diagrams via Excalidraw/kie.ai API |
+| `nano-banana-images` | Hyper-realistic image generation via Nano Banana 2 (Gemini) |
+
+## Agents (8)
+
+| Agent | When it activates | What it does |
+|-------|-------------------|-------------|
+| `astro-site-builder` | Creating Astro pages, components, or layouts | Follows layout hierarchy, Tailwind v4 @theme patterns, content collections |
+| `content-pipeline-builder` | Setting up blog automation, content generation | API retry patterns, Zod validation, GitHub Actions workflows |
+| `article-reviewer` | Reviewing blog articles in content collections | Voice compliance, ICP relevance, GEO optimization, terminology accuracy |
+| `deal-closing-expert` | Sales calls, objection handling, negotiation | SPIN, Challenger, LAER frameworks, buying signal analysis |
+| `korean-business-expert` | Korean business interactions, KakaoTalk | Hierarchy dynamics, nunchi decoder, cultural conversion funnel |
+| `french-si-market-expert` | French ESN/SI interactions, consulting platforms | Margin model transparency, platform ladder strategy, payment cycles |
+| `freelance-pricing-expert` | Rate setting, packaging, value-based pricing | TJM benchmarks, three-tier packaging, SI margin calculation |
+| `pipeline-math-expert` | Pipeline health, forecasting, conversion rates | Probability-weighted forecasting, velocity formula, deal aging |
 
 ## Philosophy
 
@@ -106,15 +203,6 @@ docs/
 **Load on demand.** Not every file needs to be in context every session. Define a trigger-to-file mapping in CLAUDE.md so the assistant loads what it needs, when it needs it. This is how you scale to 30+ reference files without blowing the context window.
 
 **Track everything, archive aggressively.** Dual-log to both structured systems (CRM) and local markdown. Archive processed entries monthly. Never archive wins.
-
-## Production Stats
-
-This framework runs a production executive assistant with:
-- 34 skills across business operations, content, development, and decision-making
-- 8 auto-activating agents for domain expertise
-- 10 self-optimization systems
-- Daily briefings pulling from CRM, email, calendar, and local files
-- Weekly reviews with time allocation analysis and accountability checks
 
 ## License
 
