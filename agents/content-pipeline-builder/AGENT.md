@@ -31,7 +31,7 @@ const retryableCodes = [429, 500, 502, 503, 529];
 for (let attempt = 1; attempt <= maxRetries; attempt++) {
   try {
     const response = await client.messages.create({
-      model: 'claude-sonnet-4-5-20250929',
+      model: 'claude-sonnet-4-6',
       max_tokens: 8192,
       temperature: 0.3,
       system: systemPrompt,
