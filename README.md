@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/og-image.png" alt="Alfred Framework — your assistant, without the padding" width="100%">
+</p>
+
 # Alfred Framework
 
 A framework for building self-improving AI executive assistants with Claude Code.
@@ -12,12 +16,12 @@ This framework was extracted from a production system that manages a freelance c
 
 ### Rules (the brain)
 Three files define how your assistant thinks:
-- **`behavior.md`** — 21 behavioral rules covering priority enforcement, brutal honesty, pattern recognition, decision forcing, avoidance detection, session management, and context capture
-- **`voice.md`** — Communication style: brevity over completeness, specifics over generalities, deadlines over intentions
+- **`behavior.md`** — 25 behavioral rules covering priority enforcement, brutal honesty, pattern recognition, decision forcing, avoidance detection, session management, context capture, knowledge synthesis routing, reply-vs-outreach separation, pre-draft context pulls, candidate-perspective gates, timezone math, and voice pre-scanning
+- **`voice.md`** — Communication style: brevity over completeness, specifics over generalities, deadlines over intentions. Includes a pre-scan gate for user-submitted drafts and a 38-word banned list.
 - **`self-optimization.md`** — 10 systems for continuous improvement: component creation (3-time rule), template evolution, relationship decay detection, time allocation analysis, stale data detection, and context window management
 
 ### Skills (user-invoked workflows)
-Multi-step procedures triggered by `/skill-name`. Each skill is a self-contained markdown file with numbered steps. 35 skills included — from daily briefings to adversarial decision debates.
+Multi-step procedures triggered by `/skill-name`. Each skill is a self-contained markdown file with numbered steps. 39 skills included — from daily briefings to adversarial decision debates to channel-aware reply drafting.
 
 ### Agents (auto-activating experts)
 Domain specialists that activate when context matches — no explicit trigger needed. 8 agents included — from Astro site building to Korean business etiquette.
@@ -80,14 +84,16 @@ cp -r agents/deal-closing-expert/ .claude/agents/deal-closing-expert/
 alfred-framework/
 ├── framework/
 │   ├── rules/                    # Core behavioral rules
-│   │   ├── behavior.md           # 21 behavioral rules
-│   │   ├── voice.md              # Communication style
+│   │   ├── behavior.md           # 25 behavioral rules
+│   │   ├── voice.md              # Communication style + pre-scan gate + banned words
 │   │   └── self-optimization.md  # 10 self-improvement systems
+│   ├── references/
+│   │   └── wiki/                 # Knowledge synthesis layer (5 template pages)
 │   ├── conventions/
 │   │   └── skill-agent-conventions.md
 │   ├── templates/                # Output templates
 │   └── structure.md
-├── skills/                       # All 35 skills
+├── skills/                       # All 39 skills
 │   ├── briefing/SKILL.md
 │   ├── weekly-review/SKILL.md
 │   ├── debrief/SKILL.md
@@ -110,7 +116,7 @@ alfred-framework/
 └── .gitignore
 ```
 
-## Skills (35)
+## Skills (39)
 
 ### Business Operations
 | Skill | What it does |
@@ -129,6 +135,7 @@ alfred-framework/
 | Skill | What it does |
 |-------|-------------|
 | `outreach` | Draft outreach message — contact lookup, angle selection, voice-checked draft |
+| `reply` | Fast reply drafter for active threads — channel- and length-aware, hard word cap, no pipeline ceremony |
 | `meeting-prep` | Meeting preparation — CRM context, email/calendar history, discovery questions |
 | `debrief` | Post-interaction capture — 5 questions, CRM update, next action with deadline |
 | `proposal` | Business proposal — challenge-led format, rate tiers, scope structure |
@@ -142,6 +149,8 @@ alfred-framework/
 | `x-post` | X/Twitter post — 280-char limit, contrarian voice, English only |
 | `linkedin-engage` | LinkedIn engagement — parse digest, score relevance, draft comments |
 | `brand-voice-check` | Content validation — regex + AI two-pass, tier-aware, bilingual |
+| `humanizer` | Remove AI-writing patterns from text (Wikipedia's "Signs of AI writing" guide) |
+| `prose-fr` | French proofreader — accents, AI patterns in French, grammar (accord, subjonctif, COD) |
 | `refresh-keyword-queue` | SEO keyword generation — validate against existing articles |
 
 ### Decision Making
@@ -172,6 +181,7 @@ alfred-framework/
 |-------|-------------|
 | `wrap-conversation` | Extract learnings from current conversation to global resources |
 | `wrap-project` | Survey project, extract cross-project patterns, consolidate memory |
+| `handoff` | Pre-`/clear` dev-session summary — chat-only, absolute paths, background process IDs preserved |
 
 ### Creative Tools
 | Skill | What it does |
