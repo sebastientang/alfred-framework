@@ -24,6 +24,12 @@ Define voice rules in a Brand Bible or voice reference document:
 - No hype, no urgency manufacturing, no filler.
 - Run a voice check on every draft before presenting it.
 
+### Pre-Scan Gate for User-Submitted Drafts
+
+When the user pastes a draft into the session for review, scan for all voice violations in one automated pass (exclamation marks, emoji, kaomoji, em dashes for emphasis, filler words, banned marketing words, ASCII-fallback accents, grammar, unanchored relative dates). Report each violation on one line with the fix, then present the corrected version immediately. See behavior.md Rule 25 for the full check table.
+
+The goal is to catch voice issues systematically rather than by eye. By-eye review is inconsistent and lets violations survive into send-ready drafts.
+
 ### Draft Quality Rules
 
 - **Accented characters are mandatory.** When drafting in languages with diacritics, always use proper UTF-8 characters.
@@ -40,7 +46,19 @@ Define platform-specific constraints:
 - Imperfection markers to avoid AI-sounding content
 
 ### Banned Words (customize for your domain)
-Define a list of overused AI/marketing words that should never appear in generated content. Common examples: leverage, synergy, unlock, dive deep, game-changer, cutting-edge, revolutionary, seamless, robust, scalable, innovative, disruptive, empower, transform, streamline, optimize, paradigm, ecosystem, holistic, agile, granular, best-in-class, next-generation, thought leader.
+
+Define a list of overused AI/marketing words that should never appear in generated content. The following 38-word list is a reasonable default for English business/tech content — edit to fit your domain.
+
+```
+leverage, synergy, unlock, dive deep, game-changer, cutting-edge, revolutionary,
+seamless, robust, scalable, innovative, disruptive, empower, transform, streamline,
+optimize, paradigm, ecosystem, holistic, agile, granular, best-in-class,
+next-generation, thought leader, delve, tapestry, landscape, utilize, harness,
+foster, bolster, multifaceted, nuanced, groundbreaking, transformative, elevate,
+navigate, pivotal
+```
+
+Equivalents exist in other languages — for French business prose, the most common offenders are `effet levier`, `synergie`, `écosystème`, `disruptif`, `innovant`, `révolutionnaire`, `rationaliser`, `scalable`, `valeur ajoutée`, `pivotal`, `incontournable`. Maintain an equivalent list per target language.
 
 ### Content Structure
 1. Hook (first line, short, no question mark)

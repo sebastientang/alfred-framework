@@ -152,8 +152,7 @@ When executing API calls to standard generation endpoints (which often only acce
 7.  **Avoid Over-Degradation (The Noise Trap):** While simulating camera flaws (like `compression artifacts`) can help realism, pushing extreme `ISO 3200` or `heavy film grain` in complex, contrast-heavy environments (like neon night streets) actually triggers the model's "digital art/illustration" biases. Keep ISO settings below 800 and rely on *physical subject imperfections* (like peach fuzz or asymmetrical pores) rather than heavy camera noise to sell the realism.
 
 ## Master Reference Guide
-If you require the absolute full schema breakdown, parameter options, or the complex JSON structing for multi-panel grids, refer to the root project document:
-`[Master Prompt Reference Guide](file:///c:/Users/nateh/OneDrive/Desktop/Nano%20Banana%202/master_prompt_reference.md)`
+For the full schema breakdown, parameter options, and the complex JSON structuring for multi-panel grids, consult the official Nano Banana 2 documentation or the upstream prompt reference maintained by your team. If you adopt this skill, place your own reference guide alongside this SKILL.md and link to it here.
 
 ## Execution via Kie.ai (Python Workflow)
 
