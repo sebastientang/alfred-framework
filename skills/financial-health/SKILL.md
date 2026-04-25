@@ -9,9 +9,9 @@ user-invokable: true
 Execute all data pulls in parallel. Output a single dashboard. <1,500 output tokens.
 
 ## Step 1: Data Collection (parallel)
-- Read `PERSONAL.md` — monthly expenses (~4,400 EUR), fixed costs breakdown
+- Read `PERSONAL.md` — monthly expenses ([BURN_RATE]), fixed costs breakdown
 - Call `cc_pipeline_list` — all active deals with stages and estimated values
-- Fetch pending notes from mobile: GET `https://[YOUR_MOBILE_SYNC_URL]/api/pending-notes` (use token from `~/.alfred-mobile-token`)
+- Fetch pending notes from mobile: GET `https://[YOUR_MOBILE_WORKER_URL]/api/pending-notes` (use token from `~/.alfred-mobile-token`)
   - Filter for "INCOME:" prefix notes — these are revenue events logged via mobile
 
 ## Step 2: Income Calculation

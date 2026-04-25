@@ -1,0 +1,18 @@
+{
+  "prompt": "A clean, minimal GitHub repository social card image at exactly 1280x640 pixels (2:1 aspect ratio). Dark charcoal background (#1a1a2e) with a subtle gradient shifting to deep navy (#16213e) at the bottom. Centered layout with generous 60px margins on all sides. At the top center, a simple geometric butler icon in white — a minimal circle with a small bowler hat silhouette, clean vector style, not cartoon. Below the icon, large bold white sans-serif text reading 'Alfred Framework' in a modern geometric typeface similar to Inter or Geist, approximately 72pt equivalent, crisp anti-aliased edges. Below that, a single line of muted light gray (#94a3b8) text in regular weight reading 'Build self-improving AI executive assistants with Claude Code' at approximately 24pt equivalent. At the bottom, three small pill-shaped tags in a row with thin white borders and transparent fill, containing the words '35 Skills', '8 Agents', '21 Rules' in small white text (~14pt). The overall aesthetic is developer-focused, premium, dark-mode native — like a well-designed CLI tool landing page. No gradients on text. No glow effects. No decorative patterns. Sharp, legible typography is the priority. The composition must keep all text and icons within the inner 40px safe zone from each edge to prevent cropping on social platforms. Studio-quality digital graphic design, not a photograph. Flat design with minimal depth cues. Do not add any lens effects, bokeh, film grain, or photographic artifacts — this is pure graphic design output.",
+  "negative_prompt": "blurry text, illegible typography, photographic realism, lens flare, bokeh, film grain, noise, skin texture, human faces, 3D rendering, drop shadows, glossy reflections, neon glow, gradient text, watermarks, stock photo watermarks, busy backgrounds, complex patterns, ornate decorations, cartoon style, comic style, anime, hand-drawn, sketch, pencil texture, paper texture, wrinkled surface, folded edges, excessive colors, rainbow gradients, clip art, low resolution, pixelated, JPEG artifacts, over-compressed, multiple fonts, decorative fonts, script fonts, serif fonts, italic text, underlined text, strikethrough, emoji, icons that look like clipart",
+  "api_parameters": {
+    "google_search": false,
+    "resolution": "2K",
+    "output_format": "png",
+    "aspect_ratio": "2:1"
+  },
+  "settings": {
+    "resolution": "1280x640",
+    "style": "minimal dark-mode developer graphic design",
+    "lighting": "flat, even, no directional light source",
+    "camera_angle": "straight-on, centered",
+    "depth_of_field": "none — flat 2D graphic",
+    "quality": "crisp vector-like rendering, sharp typography edges"
+  }
+}

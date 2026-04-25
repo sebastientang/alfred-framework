@@ -19,7 +19,7 @@ Execute these steps in order. Complete in <5,000 output tokens. Every claim must
 6. Personal/side projects described as such, client work as client work
 7. Metrics can be approximate (~47%, 30+) but must reflect reality
 8. Job titles must match what was actually held
-9. Location on CV is always "Paris, France". Never mention [YOUR_CITY], [YOUR_COUNTRY], or remote availability.
+9. Location on CV should match your professional positioning. Adjust as needed for the target market.
 
 ## Step 1: Parse Job Description
 

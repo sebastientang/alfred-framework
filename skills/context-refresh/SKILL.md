@@ -34,7 +34,7 @@ Move processed entries from `tracking/context-updates.md` to `archives/context-u
 - Keep any unprocessed entries in place
 
 ## Step 4: Freshness Audit
-Check all tracking files against freshness rules (from self-optimization.md §6):
+Check all tracking files against freshness rules (from self-optimization.md):
 
 | File | Stale after | Status |
 |------|------------|--------|

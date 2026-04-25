@@ -52,18 +52,18 @@ If any correction or adjustment was made during this session (visible in convers
 ## Step 3.6: Knowledge Capture
 If any cross-domain observation surfaced this session (personal fact affected a business decision or vice versa), append to `memory/knowledge-graph.md` under the appropriate section (Constraints, Life Events, Decision Precedents, or Learned Preferences). If behavioral patterns were noticed (energy, avoidance, relationship dynamics), append to `memory/patterns.md` under the matching section.
 
-## Step 3.8: OpenClaw Opportunity Scan
+## Step 3.8: Automation Opportunity Scan
 
 Review what was done this session. For each significant task, ask:
 1. Could this run without me present? (cron, event-trigger, or always-on)
 2. Could this run on a VPS with shell access + API keys?
 3. Does it need Claude Code-specific tooling (Edit tool, plan mode, LSP, IDE)?
 
-If answers are yes, yes, no — log it to `tracking/openclaw-study.md`.
+If answers are yes, yes, no — log it to `tracking/automation-study.md`.
 
 For each opportunity, capture:
 - Task name and category
-- Why OpenClaw could handle it (what makes it automatable)
+- Why automation could handle it (what makes it automatable)
 - Autonomy level: full / supervised / hybrid
 - Rough estimate of monthly time savings if automated
 - Any blockers or risks (security, quality, cost)

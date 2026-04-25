@@ -25,18 +25,18 @@ If target not found in CRM, check `references/contacts.md` for offline contacts.
 Read these files (only the sections relevant to the target):
 - `references/contacts.md` — mutual connections, relationship context, last contact date
 - `tracking/leads-notes.md` — deal notes, stated needs, objections raised
-- `Brand_Bible_Appendix.md` §4-5 — outreach angles, ICP match, objection handling
+- `Brand_Bible_Appendix.md` — outreach angles, ICP match, objection handling
 
 ## Step 3: Strategic Analysis
 Apply frameworks:
-- **Pipeline velocity** (frameworks.md §2): What stage is this deal at? What's the expected velocity for this stage? Is it ahead or behind?
-- **Rate/negotiation** (frameworks.md §5): What rate tier fits this client? What's the floor? What concessions are available?
+- **Pipeline velocity** (frameworks.md): What stage is this deal at? What's the expected velocity for this stage? Is it ahead or behind?
+- **Rate/negotiation** (frameworks.md): What rate tier fits this client? What's the floor? What concessions are available?
 
 Assess:
-- ICP segment match (ESN, direct, training, recruiter)
+- ICP segment match (direct client, agency, training, recruiter)
 - Decision-maker vs influencer
 - Known pain points and priorities
-- Competitive landscape (other SIs in play?)
+- Competitive landscape (other providers in play?)
 
 ## Step 4: Generate Discovery Questions
 Create 5-7 tailored discovery questions based on:

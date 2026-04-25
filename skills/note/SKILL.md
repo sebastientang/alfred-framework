@@ -11,8 +11,8 @@ One-shot append. No confirmation. No output. Just log and continue.
 ## Behavior
 1. Accept free-text input after `/note`
 2. Auto-detect category from keywords:
-   - BUSINESS: lead, rate, client, pipeline, contract, company, revenue, project, invoice, [YOUR_BUSINESS_ENTITY], freelance
-   - PERSONAL: family, health, wife, kids, gym, apartment, visa, school, piano
+   - BUSINESS: lead, rate, client, pipeline, contract, company, revenue, project, invoice, freelance
+   - PERSONAL: family, health, spouse, kids, gym, apartment, visa, school
    - Default if ambiguous: BUSINESS
 3. Infer SECTION from context (e.g., "Pipeline", "Tools", "Family", "Finances", "Health")
 4. Append one line to `tracking/context-updates.md`:
